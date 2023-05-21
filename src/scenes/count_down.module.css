@@ -1,0 +1,24 @@
+.container {
+  padding: 0 2rem;
+  
+
+}
+
+.container h1 {
+ 
+  text-align: center;
+  font-size: 200px;
+  margin-top:130px; 
+  margin-left:10px; 
+  
+
+}
+
+
+
+.count h1 {
+  text-align: center;
+  font-size: 300px;
+  margin-top:-20px; 
+   margin-bottom: 40px; 
+}

@@ -1,8 +1,14 @@
 import React from 'react';
 import styles from './title.module.css'
 import Image from "next/image"
+import db from "../firebase/firebase";
+import { doc, updateDoc } from "firebase/firestore";
 
-
+const washingtonRef = doc(db, "users","b4wmwNJAheHYZziMRc8p");
+    // Set the "capital" field of the city 'DC'
+     updateDoc(washingtonRef, {
+        quiznum: 0
+    });
 
 
 export function Title (props) {

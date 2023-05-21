@@ -31,7 +31,7 @@ export function Scene() {
 
     return(
     <div className={styles.container}>
-      <div className="container" style={{ width: 900, height: 600 }}>
+      <div className="container" style={{ width: 750, height: 400 }}>
         <div className="box">
             <div id="scene" className="scene" >
                 {scene === 'title' && <Title onClickStart1={() => setScene('count_down')} onClickStart2={() => setScene('result')}/>}

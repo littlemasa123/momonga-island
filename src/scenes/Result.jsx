@@ -49,15 +49,25 @@ const useInterval = (callback) => {
   return (
     <div className={styles.container}  >
       
+      {/* <video className={styles.video2} autoPlay loop muted>
+        <source src="/image/back.mp4" type="video/mp4" />
+      </video>
+      <div className={styles.overlay2}> */}
+
+
+       <video className={styles.video} autoPlay loop muted>
+        <source src="/image/mori_y.mp4" type="video/mp4" />
+      </video>
+      <div className={styles.overlay}>
       
         <div className="popper">
         
           
         </div>
         <div>
-          <h3>スコア</h3>
-          <h2>SCORE</h2>
-          <h1>{props.score}</h1>
+          <h3 className={`${styles.image_flex} ${styles.fadeUp}`}>スコア</h3>
+          <h2 className={`${styles.image_flex} ${styles.fadeUp}`}>SCORE</h2>
+          <h1 className={`${styles.image_flex} ${styles.fadeUp} ${styles.delay2}`}>300</h1>
     
           <button className={styles.button} onClick={props.onClickStart} >
             タイトルにもどる
@@ -74,11 +84,12 @@ const useInterval = (callback) => {
     
       
       
-
+        </div>
+        </div>
        
       
       
-    </div>
+
 
     
 

@@ -6,7 +6,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     /*width: 900; /* 画面の幅いっぱいにコンテンツを広げる */
     /*height: 600; /* 画面の高さ*/
-    /*overflow: hidden; /* 画面スクロールを無効にする */
+    overflow: hidden; /* 画面スクロールを無効にする */
     word-wrap: break-word;
     width: 800px;
     margin: 0 auto;

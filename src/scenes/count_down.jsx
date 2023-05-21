@@ -32,11 +32,26 @@ export function CountDown ({ onCountOvered }){
   }
 
   return (
-    <dev className={styles.container} >
+
+
+    <div className={styles.container} >
+
+    {/* <video className={styles.video2} autoPlay loop muted>
+      <source src="/image/back.mp4" type="video/mp4" />
+    </video>
+    <div className={styles.overlay2}> */}
+
+      <video className={styles.video} autoPlay loop muted>
+        <source src="/image/mori_q.mp4" type="video/mp4" />
+      </video>
+      <div className={styles.overlay}>
+
       <h1 className={styles.count} >
         {count}
       </h1>
-    </dev>
+      </div>
+    </div>
+
   );
 };
 

@@ -5,7 +5,7 @@ import Image from "next/image"
 import pass from "../pass.json"
 import db from "../firebase/firebase";
 //import { useCollection } from "react-firebase-hooks/firestore";
-import {collection, getDocs, onSnapshot } from "firebase/firestore"
+import { collection, getDocs, onSnapshot } from "firebase/firestore"
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
@@ -21,7 +21,7 @@ for (let i = 0; i < pass.image_data.length; i++) {
 
 
 export function SP_main(props) {
-  const [time, setTime] = useState(60); // タイマーの初期値（秒）
+  const [time, setTime] = useState(10); // タイマーの初期値（秒）
   const [gameOvered, setGameOvered] = useState(false)
   const [score, setScore] = useState(0)
 
@@ -43,7 +43,7 @@ export function SP_main(props) {
 
   // パーセント完了率の計算
   const progress = (time / 60) * 100;
-  
+
 
 
   const [users, setUsers] = useState([]);
@@ -59,7 +59,7 @@ export function SP_main(props) {
 
     //リアルタイムで取得
     onSnapshot(userData, (user) => {
-      setUsers(user.docs.map((doc) => ({...doc.data() })))
+      setUsers(user.docs.map((doc) => ({ ...doc.data() })))
     })
   }, []);
 
@@ -75,41 +75,44 @@ export function SP_main(props) {
     handleon_GameOvered(answer);
   }
 
- 
-  
+
+
   return (
 
     <div className={styles.container}>
-      
-      
-      
+
+      <video className={styles.video} autoPlay loop muted>
+        <source src="/image/mori.mp4" type="video/mp4" />
+      </video>
+      <div className={styles.overlay}>
+
       {users.map((user) => (
-        <div key={users}><font size="30">第{user.quiznum + 1}問</font></div>
+        <div key={users}><font size="30" weight="bold" color="white">第{(user.quiznum > 0) ? user.quiznum : user.quiznum + 1}問</font></div>
       ))}
       <div className={styles.flex_test_box}>
-      <span className={styles.picture}>
-      {users.map((user) => (
-        <div key={users} className={styles.image_flex}>
-          <Image src={image_data[user.quiznum].pass} alt="Vercel Logo" width={400} height={400} />
-        </div>
-      ))}
-      </span>
-      <span className={styles.circul}>
-      <CircularProgressbar 
-              value={progress }
-              strokeWidth={10}
-              
-               
-              styles={buildStyles({
-              textColor:'#000',
-              pathColor:red ,
-             
-              
-            })}/>
-            <h1>{minutes+':'+seconds }</h1>
-             </span>
-             
-      
+        <span className={styles.picture}>
+          {users.map((user) => (
+            <div key={users} className={styles.image_flex}>
+              <Image src={image_data[(user.quiznum > 0) ? user.quiznum - 1 : user.quiznum].pass} alt="Vercel Logo" width={230} height={230} />
+            </div>
+          ))}
+        </span>
+        <span className={styles.circul}>
+          <CircularProgressbar
+            value={progress}
+            strokeWidth={10}
+
+
+            styles={buildStyles({
+              textColor: '#000',
+              pathColor: red,
+
+
+            })} />
+          <h1>{minutes + ':' + seconds}</h1>
+        </span>
+
+
       </div>
       <div className={styles.chatInputButton}>
 
@@ -122,12 +125,13 @@ export function SP_main(props) {
           onKeyDown={handleKeyDown}
         />
 
-      
+
 
       </div>
 
 
     </div>
+    </div >
 
 
   );
